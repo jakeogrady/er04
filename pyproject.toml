@@ -12,3 +12,9 @@ dev = [
     "ruff>=0.14.0",
     "ty>=0.0.1a22",
 ]
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.1.0"
+tag_format = "v$version"
+use_pre_commit = true
