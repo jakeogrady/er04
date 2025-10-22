@@ -10,6 +10,7 @@ dependencies = []
 dev = [
     "adr>=0.4.0",
     "docling>=2.57.0",
+    "genanki>=0.13.1",
     "llama-index-core>=0.14.5",
     "llama-index-embeddings-huggingface>=0.6.1",
     "llama-index-llms-huggingface>=0.6.1",
