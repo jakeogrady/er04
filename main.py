@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 from tempfile import mkdtemp
 
@@ -10,7 +11,7 @@ from llama_index.vector_stores.milvus import MilvusVectorStore
 
 from models import AnkiDeck
 from note_generator import package_anki_deck
-from query import QUERY
+from query import SYSTEM_PROMPT, USER_PROMPT
 
 
 def main():
@@ -46,11 +47,17 @@ def main():
         embed_model=embed_model,
     )
 
-    result = index.as_query_engine(llm=sllm).query(QUERY)
+    # Get top nodes from the vector store
+    query_engine = index.as_query_engine(llm=llm)  # raw LLM, not structured
+    top_nodes = query_engine.retrieve(USER_PROMPT)  # pseudo-code
 
-    print(f"{type(result)} = {result}")
-    anki_deck = AnkiDeck.model_validate(result.response)
-    print(anki_deck)
+    # Combine text from nodes
+    context_text = "\n\n".join(node.get_text() for node in top_nodes)
+
+    # Pass the PDF content + prompt to the structured LLM
+    result = sllm.complete(SYSTEM_PROMPT + "\n\n" + context_text)
+    json_response = json.loads(result.text)
+    anki_deck = AnkiDeck.model_validate(json_response)
     package_anki_deck(anki_deck)
 
 

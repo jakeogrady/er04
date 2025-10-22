@@ -6,7 +6,6 @@ from pydantic import BaseModel
 
 class AnkiCardType(StrEnum):
     BASIC = "basic"
-    # CLOZE = "cloze"
 
 
 class AnkiCard(BaseModel):
