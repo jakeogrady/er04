@@ -499,10 +499,12 @@ dev = [
     { name = "adr" },
     { name = "docling" },
     { name = "genanki" },
+    { name = "granite" },
     { name = "llama-index-core" },
     { name = "llama-index-embeddings-huggingface" },
     { name = "llama-index-llms-huggingface" },
     { name = "llama-index-llms-huggingface-api" },
+    { name = "llama-index-llms-ollama" },
     { name = "llama-index-node-parser-docling" },
     { name = "llama-index-readers-docling" },
     { name = "llama-index-readers-file" },
@@ -522,10 +524,12 @@ dev = [
     { name = "adr", specifier = ">=0.4.0" },
     { name = "docling", specifier = ">=2.57.0" },
     { name = "genanki", specifier = ">=0.13.1" },
+    { name = "granite", specifier = ">=0.0.5" },
     { name = "llama-index-core", specifier = ">=0.14.5" },
     { name = "llama-index-embeddings-huggingface", specifier = ">=0.6.1" },
     { name = "llama-index-llms-huggingface", specifier = ">=0.6.1" },
     { name = "llama-index-llms-huggingface-api", specifier = ">=0.6.1" },
+    { name = "llama-index-llms-ollama", specifier = ">=0.8.0" },
     { name = "llama-index-node-parser-docling", specifier = ">=0.4.1" },
     { name = "llama-index-readers-docling", specifier = ">=0.4.1" },
     { name = "llama-index-readers-file", specifier = ">=0.5.4" },
@@ -684,6 +688,15 @@ sdist = { url = "https://files.pythonhosted.org/packages/e6/07/4459ffd44e8abfd52
 wheels = [
     { url = "https://files.pythonhosted.org/packages/af/7e/6c74ea7aaf2a36fd7df281267fade72e1f06ed1e44315bd77af2c6f82800/genanki-0.13.1-py3-none-any.whl", hash = "sha256:65b59434008588a1213b940474d1aca8cca83243af6fc0e26200b560efe4d9e3", size = 16177, upload-time = "2023-11-12T18:25:15.201Z" },
 ]
+
+[[package]]
+name = "granite"
+version = "0.0.5"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "jinja2" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f9/e9/bbaf4d79c2084afd0f5d72362c7a209ea61d8ef7a998b61171fb50a2b27f/granite-0.0.5.tar.gz", hash = "sha256:85f5a4280e8154d0e3865867e775a12efd44eee5131fcb56a18516a7561c77ca", size = 17194, upload-time = "2018-07-05T00:15:42.874Z" }
 
 [[package]]
 name = "greenlet"
@@ -1023,6 +1036,19 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/99/7a/161d429ac0a3f4a599035351ff342556b896f072bd431708e394f4f2870f/llama_index_llms_huggingface_api-0.6.1.tar.gz", hash = "sha256:e29bcdde6c1ed845c43e8c60598033e7fda227c20fbedf7f549ab8d690ee54b5", size = 7729, upload-time = "2025-09-08T20:49:11.708Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/d2/c7/ee54945dd8346daf339744ac5ad1e2643ba33ad1242c9d7d19bb9ea139da/llama_index_llms_huggingface_api-0.6.1-py3-none-any.whl", hash = "sha256:f4e31682b53709550ad5331c00f49774e054cfc240264416cd5a7c5d211def93", size = 7488, upload-time = "2025-09-08T20:49:11.007Z" },
+]
+
+[[package]]
+name = "llama-index-llms-ollama"
+version = "0.8.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "llama-index-core" },
+    { name = "ollama" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/92/bd/4aa2352a314298140790092a8b0e3fd8a65083753cd0f2473b00ae20785a/llama_index_llms_ollama-0.8.0.tar.gz", hash = "sha256:df6d208ed3938ece2bb0e7da42f92ea90c45864ae1779576991e6c9556e1d33b", size = 8572, upload-time = "2025-10-04T05:30:08.38Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/7b/a4/1de6e322c7f7fdae8166cba6dcc8fc509719ce8d7001f2259d6193be7fa5/llama_index_llms_ollama-0.8.0-py3-none-any.whl", hash = "sha256:0f3a2326acb86ccbfbff7319ab25fc609dfec44d5b0491451c6c2ee9d23bb50e", size = 8262, upload-time = "2025-10-04T05:30:07.121Z" },
 ]
 
 [[package]]
@@ -1622,6 +1648,19 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/dd/dc/de3e9635774b97d9766f6815bbb3f5ec9bce347115f10d9abbf2733a9316/ocrmac-1.0.0.tar.gz", hash = "sha256:5b299e9030c973d1f60f82db000d6c2e5ff271601878c7db0885e850597d1d2e", size = 1463997, upload-time = "2024-11-07T12:00:00.197Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/e5/f4/eef75cb750ff3e40240c8cbc713d68f8fc12b10eef016f7d4966eb05b065/ocrmac-1.0.0-py2.py3-none-any.whl", hash = "sha256:0b5a072aa23a9ead48132cb2d595b680aa6c3c5a6cb69525155e35ca95610c3a", size = 12100, upload-time = "2024-11-07T11:59:58.383Z" },
+]
+
+[[package]]
+name = "ollama"
+version = "0.6.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "httpx" },
+    { name = "pydantic" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/d6/47/f9ee32467fe92744474a8c72e138113f3b529fc266eea76abfdec9a33f3b/ollama-0.6.0.tar.gz", hash = "sha256:da2b2d846b5944cfbcee1ca1e6ee0585f6c9d45a2fe9467cbcd096a37383da2f", size = 50811, upload-time = "2025-09-24T22:46:02.417Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b5/c1/edc9f41b425ca40b26b7c104c5f6841a4537bb2552bfa6ca66e81405bb95/ollama-0.6.0-py3-none-any.whl", hash = "sha256:534511b3ccea2dff419ae06c3b58d7f217c55be7897c8ce5868dfb6b219cf7a0", size = 14130, upload-time = "2025-09-24T22:46:01.19Z" },
 ]
 
 [[package]]

@@ -5,7 +5,7 @@ from tempfile import mkdtemp
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core import StorageContext, VectorStoreIndex
 from llama_index.core.node_parser import MarkdownNodeParser
-from llama_index.llms.huggingface import HuggingFaceLLM
+from llama_index.llms.ollama import Ollama
 from llama_index.readers.docling import DoclingReader
 from llama_index.vector_stores.milvus import MilvusVectorStore
 
@@ -15,20 +15,15 @@ from query import SYSTEM_PROMPT, USER_PROMPT
 
 
 def main():
-    embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
+    embed_model = HuggingFaceEmbedding(
+        model_name="BAAI/bge-small-en-v1.5", device="cpu"
+    )
 
-    model_id = "Qwen/Qwen2.5-1.5B-Instruct"
-
-    llm = HuggingFaceLLM(
-        model_name=model_id,
-        tokenizer_name=model_id,
-        model_kwargs={"trust_remote_code": True},
-        tokenizer_kwargs={"trust_remote_code": True},
+    llm = Ollama(
+        model="llama3.2:3b", request_timeout=300, json_mode=True, context_window=2048
     )
 
     sllm = llm.as_structured_llm(AnkiDeck)
-
-    source = "../bitcoin.pdf"
 
     embed_dim = len(embed_model.get_text_embedding("hi"))
 
@@ -41,7 +36,7 @@ def main():
         overwrite=True,
     )
     index = VectorStoreIndex.from_documents(
-        documents=reader.load_data(source),
+        documents=reader.load_data("../bitcoin.pdf"),
         transformations=[node_parser],
         storage_context=StorageContext.from_defaults(vector_store=vector_store),
         embed_model=embed_model,

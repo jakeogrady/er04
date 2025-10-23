@@ -21,8 +21,12 @@ SYSTEM_PROMPT = """
 }
 
 
-Write 3 of these questions in this format.
+Write 30 of these questions in this format.
 
+You must put actual content in place of each <>. DON'T put <> in the notes, ever.
+Ensure that you are not writing flashcards that are duplicated,
+ before creating a new one, consider what you have already written.
+ 
 You must make sure to not return anything other than this json.
 So don't say: I can do that! <json>.
 """

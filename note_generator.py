@@ -51,6 +51,8 @@ def package_anki_deck(deck: AnkiDeck) -> None:
 
         my_deck.add_note(note)
 
+    package_name = f"output{random.randrange(1 << 30, 1 << 31)}.apkg"
+    print(f"Packaged Anki Deck {my_deck.name} - {package_name}")
     genanki.Package(my_deck).write_to_file(
-        f"output{random.randrange(1 << 30, 1 << 31)}.apkg"
+        package_name,
     )
