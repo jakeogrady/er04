@@ -2,9 +2,9 @@ import json
 from pathlib import Path
 from tempfile import mkdtemp
 
-from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core import StorageContext, VectorStoreIndex
 from llama_index.core.node_parser import MarkdownNodeParser
+from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.llms.ollama import Ollama
 from llama_index.readers.docling import DoclingReader
 from llama_index.vector_stores.milvus import MilvusVectorStore
@@ -16,11 +16,15 @@ from query import SYSTEM_PROMPT, USER_PROMPT
 
 def main():
     embed_model = HuggingFaceEmbedding(
-        model_name="BAAI/bge-small-en-v1.5", device="cpu"
+        model_name="BAAI/bge-small-en-v1.5",
+        device="cpu",
     )
 
     llm = Ollama(
-        model="llama3.2:3b", request_timeout=300, json_mode=True, context_window=2048
+        model="llama3.2:3b",
+        request_timeout=300,
+        json_mode=True,
+        context_window=2048,
     )
 
     sllm = llm.as_structured_llm(AnkiDeck)

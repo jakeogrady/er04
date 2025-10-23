@@ -1,5 +1,4 @@
 from enum import StrEnum
-from typing import List
 
 from llama_index.core.bridge.pydantic import BaseModel
 
@@ -15,4 +14,4 @@ class AnkiCard(BaseModel):
 
 
 class AnkiDeck(BaseModel):
-    deck: List[AnkiCard]
+    deck: list[AnkiCard]

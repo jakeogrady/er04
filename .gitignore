@@ -13,3 +13,6 @@ wheels/
 
 # duh
 .env
+
+# anki packages
+*.apkg

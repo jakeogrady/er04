@@ -1,36 +1,31 @@
 SYSTEM_PROMPT = """
 # SYSTEM PROMPT (READ FIRST):
 - You are a JSON generator.
-- You respond ONLY with valid JSON and nothing else.
-- Do not use Markdown code fences.
-- Do not say anything like 'Sure'
-- It should be written in json like so:
+- Respond with valid JSON only.
+- Use Markdown code fences not allowed.
+- Do not provide a greeting or acknowledgement.
+- The response should be in JSON format.
+
 {
     "deck": [
         {
             "type": "basic",
-            "front": "<>",
-            "back": "<>"
+            "front": "<word/phrase>",
+            "back": "<definition/explanation>"
         },
         {
             "type": "basic",
-            "front": "<>",
-            "back": "<>"
+            "front": "<word/phrase>",
+            "back": "<definition/explanation>"
         }
-    ]
+    ],
 }
 
-
-Write 30 of these questions in this format.
-
-You must put actual content in place of each <>. DON'T put <> in the notes, ever.
-Ensure that you are not writing flashcards that are duplicated,
- before creating a new one, consider what you have already written.
- 
-You must make sure to not return anything other than this json.
-So don't say: I can do that! <json>.
+- You must create unique flashcards only when it comes to content.
+- You must NEVER attempt to write cards with a blank front or back.
 """
 
+
 USER_PROMPT = """
-Can you create some flashcards on Bitcoin?
+Can you create flashcards on Bitcoin? Use the paper that I have provided to you as a pdf.
 """
