@@ -1,3 +1,5 @@
+"""Main file to create Anki Deck."""
+
 import json
 from pathlib import Path
 from tempfile import mkdtemp
@@ -14,7 +16,8 @@ from note_generator import package_anki_deck
 from query import SYSTEM_PROMPT, USER_PROMPT
 
 
-def main():
+def main() -> None:
+    """Main function."""
     embed_model = HuggingFaceEmbedding(
         model_name="BAAI/bge-small-en-v1.5",
         device="cpu",

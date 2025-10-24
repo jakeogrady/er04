@@ -1,3 +1,6 @@
+"""Module containing functions which take Anki Models that process into .apkg."""
+
+import logging
 import random
 
 import genanki
@@ -20,9 +23,11 @@ basic_model = genanki.Model(
         },
     ],
 )
+logger = logging.getLogger(__name__)
 
 
 def create_anki_card(card: AnkiCard) -> Note:
+    """Create Anki card from the given Model."""
     if card.type.lower() == "cloze":
         note = genanki.Note(
             guid=random.randrange(1 << 30, 1 << 31),
@@ -40,6 +45,7 @@ def create_anki_card(card: AnkiCard) -> Note:
 
 
 def package_anki_deck(deck: AnkiDeck) -> None:
+    """Package Anki deck from the given Model into .apkg."""
     my_deck = genanki.Deck(
         random.randrange(1 << 30, 1 << 31),
         "Bitcoin Deck",
@@ -52,7 +58,7 @@ def package_anki_deck(deck: AnkiDeck) -> None:
         my_deck.add_note(note)
 
     package_name = f"output{random.randrange(1 << 30, 1 << 31)}.apkg"
-    print(f"Packaged Anki Deck {my_deck.name} - {package_name}")
+    logger.info(f"Packaged Anki Deck {my_deck.name} - {package_name}")
     genanki.Package(my_deck).write_to_file(
         package_name,
     )

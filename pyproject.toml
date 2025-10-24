@@ -34,3 +34,20 @@ name = "cz_conventional_commits"
 version = "0.1.0"
 tag_format = "v$version"
 use_pre_commit = true
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "ALL", # include all the rules, including new ones
+]
+ignore = [
+    "G004", # Logging Statement uses f-string
+    "S311", # Standard pseudo-random generators for cryptography
+    "D401", # Docstrings must be in imperative mood
+    "D203", # Include blank line before docstring.
+    "D213", # Position mult-line docstrings below '"""' symbol.
+    "COM812" # Missing Trailing Comma
+]
