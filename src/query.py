@@ -7,6 +7,7 @@ SYSTEM_PROMPT = """
     for your students.
 - Each flashcard must consist of a question / term from the paper on the front,
     along with a COMPLETE explanation of the question / term on the back.
+- The back of each flashcard should be less than 20 words long.
 - Respond with valid JSON only.
 - Use Markdown code fences not allowed.
 - Do not provide a greeting or acknowledgement.
@@ -27,7 +28,7 @@ SYSTEM_PROMPT = """
     ],
 }
 
-- You must create unique flashcards only when it comes to content.
+- You must create 30 unique flashcards only when it comes to content.
 - You must NEVER attempt to write cards with a blank front or back.
 """
 

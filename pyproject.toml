@@ -21,10 +21,12 @@ dev = [
     "llama-index-readers-docling>=0.4.1",
     "llama-index-readers-file>=0.5.4",
     "llama-index-vector-stores-milvus>=0.9.3",
+    "numpy>=2.3.3",
     "pre-commit>=4.3.0",
     "pymilvus[milvus-lite]>=2.6.2",
     "python-dotenv>=1.1.1",
     "ruff>=0.14.0",
+    "sentence-transformers>=5.1.1",
     "transformers>=4.57.1",
     "ty>=0.0.1a22",
 ]
@@ -49,5 +51,10 @@ ignore = [
     "D401", # Docstrings must be in imperative mood
     "D203", # Include blank line before docstring.
     "D213", # Position mult-line docstrings below '"""' symbol.
-    "COM812" # Missing Trailing Comma
+    "COM812", # Missing Trailing Comma
+    "D104", # Missing Docstring in Public Package
 ]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

@@ -13,7 +13,7 @@ from llama_index.vector_stores.milvus import MilvusVectorStore
 
 from models import AnkiDeck
 from note_generator import package_anki_deck
-from query import SYSTEM_PROMPT, USER_PROMPT
+from src.query import SYSTEM_PROMPT, USER_PROMPT
 
 
 def main() -> None:
